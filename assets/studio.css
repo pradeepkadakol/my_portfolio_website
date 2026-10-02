@@ -287,61 +287,52 @@ body::before { background:none; }
   .hero h1 .accent { background:none; color:CanvasText; }
 }
 
-/* A slow orbital backdrop inspired by the supplied reference. */
+/* A quiet cinematic horizon with slow cloud drift and layered perspective. */
 body::before {
-  content:""; position:fixed; inset:-2%; z-index:-1; pointer-events:none;
+  content:""; position:fixed; inset:-4% -3%; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(2px 2px at 8% 16%,rgba(70,58,28,.54) 45%,transparent 65%),
-    radial-gradient(1.5px 1.5px at 19% 68%,rgba(60,62,57,.48) 45%,transparent 65%),
-    radial-gradient(2px 2px at 31% 29%,rgba(170,127,25,.62) 45%,transparent 65%),
-    radial-gradient(1px 1px at 45% 81%,rgba(60,62,57,.44) 45%,transparent 65%),
-    radial-gradient(2px 2px at 58% 12%,rgba(70,58,28,.50) 45%,transparent 65%),
-    radial-gradient(1px 1px at 69% 57%,rgba(170,127,25,.56) 45%,transparent 65%),
-    radial-gradient(1.5px 1.5px at 83% 24%,rgba(60,62,57,.52) 45%,transparent 65%),
-    radial-gradient(2px 2px at 94% 73%,rgba(70,58,28,.44) 45%,transparent 65%),
-    radial-gradient(ellipse at 73% 23%,rgba(239,199,67,.12),transparent 32%),
-    linear-gradient(145deg,#f5f5f2 0%,#f4f2e9 52%,#f5f5f2 100%);
-  animation:cosmic-backdrop-drift 38s ease-in-out infinite alternate;
+    radial-gradient(ellipse 38% 18% at 18% 36%,rgba(236,220,176,.10),transparent 72%),
+    radial-gradient(ellipse 45% 16% at 74% 30%,rgba(255,255,255,.06),transparent 74%),
+    radial-gradient(ellipse 35% 14% at 58% 56%,rgba(240,207,96,.10),transparent 75%),
+    radial-gradient(ellipse at 71% 61%,rgba(196,143,40,.12),transparent 36%),
+    linear-gradient(180deg,#181914 0%,#25231b 43%,#181912 100%);
+  background-size:125% 110%,140% 120%,135% 130%,100% 100%,100% 100%;
+  background-position:0 0,100% 20%,15% 100%,center,center;
+  animation:horizon-cloud-drift 48s ease-in-out infinite alternate;
 }
-html[data-theme="dark"] body::before {
+html:not([data-theme="dark"]) body::before {
   background:
-    radial-gradient(2px 2px at 8% 16%,rgba(255,255,255,.9) 45%,transparent 65%),
-    radial-gradient(1.5px 1.5px at 19% 68%,rgba(255,255,255,.78) 45%,transparent 65%),
-    radial-gradient(2px 2px at 31% 29%,rgba(240,207,96,.82) 45%,transparent 65%),
-    radial-gradient(1px 1px at 45% 81%,rgba(255,255,255,.8) 45%,transparent 65%),
-    radial-gradient(2px 2px at 58% 12%,rgba(255,255,255,.75) 45%,transparent 65%),
-    radial-gradient(1px 1px at 69% 57%,rgba(240,207,96,.8) 45%,transparent 65%),
-    radial-gradient(1.5px 1.5px at 83% 24%,rgba(255,255,255,.82) 45%,transparent 65%),
-    radial-gradient(2px 2px at 94% 73%,rgba(255,255,255,.76) 45%,transparent 65%),
-    radial-gradient(ellipse at 73% 23%,rgba(176,126,30,.21),transparent 32%),
-    radial-gradient(ellipse at 88% 70%,rgba(127,94,32,.13),transparent 36%),
-    linear-gradient(135deg,#141512 0%,#19170f 44%,#0c0d0b 72%,#17160f 100%);
+    radial-gradient(ellipse 38% 18% at 18% 36%,rgba(255,255,255,.62),transparent 72%),
+    radial-gradient(ellipse 45% 16% at 74% 30%,rgba(221,215,197,.55),transparent 74%),
+    radial-gradient(ellipse 35% 14% at 58% 56%,rgba(240,207,96,.18),transparent 75%),
+    radial-gradient(ellipse at 71% 61%,rgba(196,143,40,.12),transparent 36%),
+    linear-gradient(180deg,#f4f2eb 0%,#e8e4d8 48%,#f5f4ef 100%);
 }
 body::after {
   content:""; position:fixed; z-index:-1; pointer-events:none;
-  width:min(90vw,104vh); aspect-ratio:1; right:-2vw; top:20vh;
-  border:clamp(15px,2.4vw,34px) solid transparent; border-radius:50%;
-  background:linear-gradient(transparent,transparent) padding-box,
-    linear-gradient(135deg,rgba(240,207,96,.08),rgba(240,207,96,.82) 34%,rgba(255,246,202,.62) 48%,rgba(240,207,96,.13) 76%,rgba(240,207,96,.55)) border-box;
-  box-shadow:inset 0 0 42px rgba(240,207,96,.12),0 0 34px rgba(240,207,96,.11);
-  filter:drop-shadow(0 0 18px rgba(240,207,96,.13));
-  opacity:.34;
-  transform:perspective(1000px) rotateX(68deg) rotateZ(-22deg);
-  transform-style:preserve-3d;
-  animation:cosmic-orbit-drift 30s ease-in-out infinite alternate;
+  left:-5vw; bottom:-5vh; width:110vw; height:55vh;
+  clip-path:polygon(0 57%,11% 49%,21% 54%,34% 24%,46% 47%,57% 36%,69% 51%,81% 21%,91% 43%,100% 31%,100% 100%,0 100%);
+  background:linear-gradient(180deg,rgba(240,207,96,.23),rgba(22,22,18,.78) 34%,#11120f 100%);
+  opacity:.42;
+  transform:perspective(1100px) rotateX(8deg) translate3d(0,0,0);
+  transform-origin:center bottom;
+  animation:horizon-ridge-drift 34s ease-in-out infinite alternate;
 }
-html[data-theme="dark"] body::after { opacity:.72; }
-@keyframes cosmic-backdrop-drift {
-  from { transform:scale(1) translate3d(-.25%,0,0); }
-  to { transform:scale(1.035) translate3d(.25%,-.3%,0); }
+html:not([data-theme="dark"]) body::after {
+  background:linear-gradient(180deg,rgba(191,148,58,.15),rgba(105,94,68,.12) 36%,rgba(245,244,239,.94) 100%);
+  opacity:.5;
 }
-@keyframes cosmic-orbit-drift {
-  from { transform:perspective(1000px) rotateX(66deg) rotateZ(-24deg); }
-  to { transform:perspective(1000px) rotateX(71deg) rotateZ(-8deg) translate3d(-12px,8px,0); }
+@keyframes horizon-cloud-drift {
+  from { background-position:0 0,100% 20%,15% 100%,center,center; }
+  to { background-position:5% -2%,92% 24%,23% 96%,center,center; }
+}
+@keyframes horizon-ridge-drift {
+  from { transform:perspective(1100px) rotateX(8deg) translate3d(-1vw,0,0) scale(1.01); }
+  to { transform:perspective(1100px) rotateX(11deg) translate3d(1vw,-1.2vh,0) scale(1.035); }
 }
 @media(max-width:680px) {
-  body::after { width:760px; right:-108vw; top:11vh; opacity:.22; }
-  html[data-theme="dark"] body::after { opacity:.48; }
+  body::after { left:-22vw; width:145vw; height:39vh; bottom:-2vh; opacity:.3; }
+  html:not([data-theme="dark"]) body::after { opacity:.38; }
 }
 @media(prefers-reduced-motion:reduce) {
   body::before,body::after { animation:none; }
