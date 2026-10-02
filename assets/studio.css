@@ -287,36 +287,62 @@ body::before { background:none; }
   .hero h1 .accent { background:none; color:CanvasText; }
 }
 
-/* Gentle 3D motion adds depth to the portrait without distracting from it. */
-.portrait-card { perspective:900px; transform-style:preserve-3d; }
-.portrait-card::before {
-  content:""; position:absolute; z-index:0; left:50%; top:49%;
-  width:76%; aspect-ratio:1; border:1px solid rgba(255,255,255,.68);
-  border-radius:50%; pointer-events:none;
-  transform:translate(-50%,-50%) rotateX(62deg) rotateZ(-18deg);
-  animation:portfolio-ring-drift 20s ease-in-out infinite alternate;
+/* A slow orbital backdrop inspired by the supplied reference. */
+body::before {
+  content:""; position:fixed; inset:-2%; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(2px 2px at 8% 16%,rgba(70,58,28,.54) 45%,transparent 65%),
+    radial-gradient(1.5px 1.5px at 19% 68%,rgba(60,62,57,.48) 45%,transparent 65%),
+    radial-gradient(2px 2px at 31% 29%,rgba(170,127,25,.62) 45%,transparent 65%),
+    radial-gradient(1px 1px at 45% 81%,rgba(60,62,57,.44) 45%,transparent 65%),
+    radial-gradient(2px 2px at 58% 12%,rgba(70,58,28,.50) 45%,transparent 65%),
+    radial-gradient(1px 1px at 69% 57%,rgba(170,127,25,.56) 45%,transparent 65%),
+    radial-gradient(1.5px 1.5px at 83% 24%,rgba(60,62,57,.52) 45%,transparent 65%),
+    radial-gradient(2px 2px at 94% 73%,rgba(70,58,28,.44) 45%,transparent 65%),
+    radial-gradient(ellipse at 73% 23%,rgba(239,199,67,.12),transparent 32%),
+    linear-gradient(145deg,#f5f5f2 0%,#f4f2e9 52%,#f5f5f2 100%);
+  animation:cosmic-backdrop-drift 38s ease-in-out infinite alternate;
 }
-.portrait-card::after {
-  content:""; position:absolute; z-index:0; left:50%; top:49%;
-  width:11px; height:11px; border-radius:50%; pointer-events:none;
-  background:#f0cf60; box-shadow:0 0 15px rgba(240,207,96,.56);
-  transform:translate3d(125px,-25px,28px);
-  animation:portfolio-orbit 16s linear infinite;
+html[data-theme="dark"] body::before {
+  background:
+    radial-gradient(2px 2px at 8% 16%,rgba(255,255,255,.9) 45%,transparent 65%),
+    radial-gradient(1.5px 1.5px at 19% 68%,rgba(255,255,255,.78) 45%,transparent 65%),
+    radial-gradient(2px 2px at 31% 29%,rgba(240,207,96,.82) 45%,transparent 65%),
+    radial-gradient(1px 1px at 45% 81%,rgba(255,255,255,.8) 45%,transparent 65%),
+    radial-gradient(2px 2px at 58% 12%,rgba(255,255,255,.75) 45%,transparent 65%),
+    radial-gradient(1px 1px at 69% 57%,rgba(240,207,96,.8) 45%,transparent 65%),
+    radial-gradient(1.5px 1.5px at 83% 24%,rgba(255,255,255,.82) 45%,transparent 65%),
+    radial-gradient(2px 2px at 94% 73%,rgba(255,255,255,.76) 45%,transparent 65%),
+    radial-gradient(ellipse at 73% 23%,rgba(176,126,30,.21),transparent 32%),
+    radial-gradient(ellipse at 88% 70%,rgba(127,94,32,.13),transparent 36%),
+    linear-gradient(135deg,#141512 0%,#19170f 44%,#0c0d0b 72%,#17160f 100%);
 }
-@keyframes portfolio-ring-drift {
-  from { transform:translate(-50%,-50%) rotateX(60deg) rotateY(-8deg) rotateZ(-18deg); }
-  to { transform:translate(-50%,-50%) rotateX(66deg) rotateY(8deg) rotateZ(18deg); }
+body::after {
+  content:""; position:fixed; z-index:-1; pointer-events:none;
+  width:min(90vw,104vh); aspect-ratio:1; right:-2vw; top:20vh;
+  border:clamp(15px,2.4vw,34px) solid transparent; border-radius:50%;
+  background:linear-gradient(transparent,transparent) padding-box,
+    linear-gradient(135deg,rgba(240,207,96,.08),rgba(240,207,96,.82) 34%,rgba(255,246,202,.62) 48%,rgba(240,207,96,.13) 76%,rgba(240,207,96,.55)) border-box;
+  box-shadow:inset 0 0 42px rgba(240,207,96,.12),0 0 34px rgba(240,207,96,.11);
+  filter:drop-shadow(0 0 18px rgba(240,207,96,.13));
+  opacity:.34;
+  transform:perspective(1000px) rotateX(68deg) rotateZ(-22deg);
+  transform-style:preserve-3d;
+  animation:cosmic-orbit-drift 30s ease-in-out infinite alternate;
 }
-@keyframes portfolio-orbit {
-  0% { transform:translate3d(125px,-25px,28px); }
-  25% { transform:translate3d(20px,-122px,12px); }
-  50% { transform:translate3d(-125px,-20px,-24px); }
-  75% { transform:translate3d(-12px,122px,24px); }
-  100% { transform:translate3d(125px,-25px,28px); }
+html[data-theme="dark"] body::after { opacity:.72; }
+@keyframes cosmic-backdrop-drift {
+  from { transform:scale(1) translate3d(-.25%,0,0); }
+  to { transform:scale(1.035) translate3d(.25%,-.3%,0); }
 }
-.chip .ic { width:14px; height:14px; flex:none; }
-.skill-card .chips { align-items:center; }
-html[data-theme="dark"] .portrait-card::before { border-color:rgba(255,255,255,.3); }
+@keyframes cosmic-orbit-drift {
+  from { transform:perspective(1000px) rotateX(66deg) rotateZ(-24deg); }
+  to { transform:perspective(1000px) rotateX(71deg) rotateZ(-8deg) translate3d(-12px,8px,0); }
+}
+@media(max-width:680px) {
+  body::after { width:760px; right:-108vw; top:11vh; opacity:.22; }
+  html[data-theme="dark"] body::after { opacity:.48; }
+}
 @media(prefers-reduced-motion:reduce) {
-  .portrait-card::before,.portrait-card::after { animation:none; }
+  body::before,body::after { animation:none; }
 }
