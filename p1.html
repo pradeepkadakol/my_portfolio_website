@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pradeep Kadakol — Full-Stack Developer</title>
   <meta name="description" content="Meet Pradeep Kadakol, a Computer Science student building full-stack web applications and exploring AI. Explore his projects, skills, and journey.">
-  <meta name="theme-color" content="#f6f5ef">
+  <meta name="theme-color" content="#f4f6f5">
   <link rel="icon" type="image/svg+xml" href="assets/pk-mark.svg">
   <script>
     (function () {
       try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
-      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#191c18' : '#f6f5ef';
+      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#171e20' : '#f4f6f5';
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -452,7 +452,7 @@
 
       function applyTheme(theme) {
         root.dataset.theme = theme;
-        $('meta[name="theme-color"]').content = theme === 'dark' ? '#191c18' : '#f6f5ef';
+        $('meta[name="theme-color"]').content = theme === 'dark' ? '#171e20' : '#f4f6f5';
         $('.theme-btn').setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
       }
       applyTheme(root.dataset.theme);
