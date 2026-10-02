@@ -287,52 +287,75 @@ body::before { background:none; }
   .hero h1 .accent { background:none; color:CanvasText; }
 }
 
-/* A quiet cinematic horizon with slow cloud drift and layered perspective. */
+/* A slow, cinematic nebula and star field inspired by the supplied reference. */
 body::before {
-  content:""; position:fixed; inset:-4% -3%; z-index:-1; pointer-events:none;
+  content:""; position:fixed; inset:-3%; z-index:-1; pointer-events:none;
   background:
-    radial-gradient(ellipse 38% 18% at 18% 36%,rgba(236,220,176,.10),transparent 72%),
-    radial-gradient(ellipse 45% 16% at 74% 30%,rgba(255,255,255,.06),transparent 74%),
-    radial-gradient(ellipse 35% 14% at 58% 56%,rgba(240,207,96,.10),transparent 75%),
-    radial-gradient(ellipse at 71% 61%,rgba(196,143,40,.12),transparent 36%),
-    linear-gradient(180deg,#181914 0%,#25231b 43%,#181912 100%);
-  background-size:125% 110%,140% 120%,135% 130%,100% 100%,100% 100%;
-  background-position:0 0,100% 20%,15% 100%,center,center;
-  animation:horizon-cloud-drift 48s ease-in-out infinite alternate;
+    radial-gradient(circle,rgba(255,255,255,.44) .55px,transparent .9px) 0 0/43px 47px,
+    radial-gradient(circle,rgba(255,255,255,.27) .45px,transparent .8px) 13px 17px/71px 83px,
+    radial-gradient(2px 2px at 7% 18%,rgba(255,255,255,.88) 48%,transparent 65%),
+    radial-gradient(1.5px 1.5px at 14% 73%,rgba(240,207,96,.78) 48%,transparent 68%),
+    radial-gradient(2px 2px at 23% 39%,rgba(255,255,255,.75) 48%,transparent 65%),
+    radial-gradient(1px 1px at 32% 12%,rgba(255,255,255,.78) 48%,transparent 68%),
+    radial-gradient(1.5px 1.5px at 39% 82%,rgba(240,207,96,.74) 48%,transparent 68%),
+    radial-gradient(2px 2px at 49% 26%,rgba(255,255,255,.82) 48%,transparent 65%),
+    radial-gradient(1px 1px at 57% 70%,rgba(255,255,255,.76) 48%,transparent 68%),
+    radial-gradient(1.5px 1.5px at 66% 15%,rgba(240,207,96,.78) 48%,transparent 68%),
+    radial-gradient(2px 2px at 74% 48%,rgba(255,255,255,.85) 48%,transparent 65%),
+    radial-gradient(1px 1px at 83% 83%,rgba(255,255,255,.76) 48%,transparent 68%),
+    radial-gradient(1.5px 1.5px at 92% 29%,rgba(240,207,96,.8) 48%,transparent 68%),
+    radial-gradient(ellipse at 50% 40%,rgba(122,54,36,.18),transparent 37%),
+    radial-gradient(ellipse at 48% 45%,rgba(240,207,96,.08),transparent 55%),
+    linear-gradient(180deg,#080908 0%,#11110e 55%,#080908 100%);
+  animation:starfield-drift 70s ease-in-out infinite alternate;
 }
 html:not([data-theme="dark"]) body::before {
   background:
-    radial-gradient(ellipse 38% 18% at 18% 36%,rgba(255,255,255,.62),transparent 72%),
-    radial-gradient(ellipse 45% 16% at 74% 30%,rgba(221,215,197,.55),transparent 74%),
-    radial-gradient(ellipse 35% 14% at 58% 56%,rgba(240,207,96,.18),transparent 75%),
-    radial-gradient(ellipse at 71% 61%,rgba(196,143,40,.12),transparent 36%),
-    linear-gradient(180deg,#f4f2eb 0%,#e8e4d8 48%,#f5f4ef 100%);
+    radial-gradient(circle,rgba(47,45,38,.28) .55px,transparent .9px) 0 0/43px 47px,
+    radial-gradient(circle,rgba(155,119,46,.32) .45px,transparent .8px) 13px 17px/71px 83px,
+    radial-gradient(2px 2px at 7% 18%,rgba(34,34,31,.54) 48%,transparent 65%),
+    radial-gradient(1.5px 1.5px at 14% 73%,rgba(159,119,37,.7) 48%,transparent 68%),
+    radial-gradient(2px 2px at 23% 39%,rgba(34,34,31,.48) 48%,transparent 65%),
+    radial-gradient(1px 1px at 32% 12%,rgba(34,34,31,.52) 48%,transparent 68%),
+    radial-gradient(1.5px 1.5px at 39% 82%,rgba(159,119,37,.68) 48%,transparent 68%),
+    radial-gradient(2px 2px at 49% 26%,rgba(34,34,31,.48) 48%,transparent 65%),
+    radial-gradient(1px 1px at 57% 70%,rgba(34,34,31,.5) 48%,transparent 68%),
+    radial-gradient(1.5px 1.5px at 66% 15%,rgba(159,119,37,.7) 48%,transparent 68%),
+    radial-gradient(2px 2px at 74% 48%,rgba(34,34,31,.5) 48%,transparent 65%),
+    radial-gradient(1px 1px at 83% 83%,rgba(34,34,31,.48) 48%,transparent 68%),
+    radial-gradient(1.5px 1.5px at 92% 29%,rgba(159,119,37,.72) 48%,transparent 68%),
+    radial-gradient(ellipse at 50% 40%,rgba(122,54,36,.10),transparent 37%),
+    radial-gradient(ellipse at 48% 45%,rgba(240,207,96,.12),transparent 55%),
+    linear-gradient(180deg,#f4f3ef 0%,#ebe8df 55%,#f5f4ef 100%);
 }
 body::after {
   content:""; position:fixed; z-index:-1; pointer-events:none;
-  left:-5vw; bottom:-5vh; width:110vw; height:55vh;
-  clip-path:polygon(0 57%,11% 49%,21% 54%,34% 24%,46% 47%,57% 36%,69% 51%,81% 21%,91% 43%,100% 31%,100% 100%,0 100%);
-  background:linear-gradient(180deg,rgba(240,207,96,.23),rgba(22,22,18,.78) 34%,#11120f 100%);
-  opacity:.42;
-  transform:perspective(1100px) rotateX(8deg) translate3d(0,0,0);
-  transform-origin:center bottom;
-  animation:horizon-ridge-drift 34s ease-in-out infinite alternate;
+  width:min(88vw,1080px); height:min(47vw,500px); left:50%; top:39vh;
+  border-radius:50%;
+  background:
+    radial-gradient(ellipse at 50% 50%,rgba(255,238,185,.72) 0%,rgba(240,207,96,.46) 3%,rgba(155,89,47,.28) 13%,transparent 49%),
+    conic-gradient(from 210deg at 50% 50%,transparent 0deg,rgba(124,39,40,.06) 32deg,rgba(240,207,96,.28) 64deg,transparent 91deg,rgba(116,40,45,.25) 148deg,transparent 190deg,rgba(240,207,96,.2) 254deg,transparent 310deg),
+    radial-gradient(ellipse at 50% 50%,transparent 24%,rgba(121,45,42,.2) 42%,transparent 69%);
+  filter:blur(9px) drop-shadow(0 0 32px rgba(183,108,48,.14));
+  mix-blend-mode:screen; opacity:.5;
+  transform:translate(-50%,-50%) perspective(1000px) rotateX(67deg) rotateZ(-20deg);
+  transform-style:preserve-3d;
+  animation:nebula-turn 38s ease-in-out infinite alternate;
 }
 html:not([data-theme="dark"]) body::after {
-  background:linear-gradient(180deg,rgba(191,148,58,.15),rgba(105,94,68,.12) 36%,rgba(245,244,239,.94) 100%);
-  opacity:.5;
+  mix-blend-mode:multiply; opacity:.18; filter:blur(14px);
 }
-@keyframes horizon-cloud-drift {
-  from { background-position:0 0,100% 20%,15% 100%,center,center; }
-  to { background-position:5% -2%,92% 24%,23% 96%,center,center; }
+@keyframes starfield-drift {
+  from { transform:scale(1) translate3d(-.15%,0,0); }
+  to { transform:scale(1.035) translate3d(.2%,-.25%,0); }
 }
-@keyframes horizon-ridge-drift {
-  from { transform:perspective(1100px) rotateX(8deg) translate3d(-1vw,0,0) scale(1.01); }
-  to { transform:perspective(1100px) rotateX(11deg) translate3d(1vw,-1.2vh,0) scale(1.035); }
+@keyframes nebula-turn {
+  from { transform:translate(-50%,-50%) perspective(1000px) rotateX(65deg) rotateZ(-22deg) scale(.96); }
+  to { transform:translate(-50%,-50%) perspective(1000px) rotateX(69deg) rotateZ(2deg) scale(1.04); }
 }
 @media(max-width:680px) {
-  body::after { left:-22vw; width:145vw; height:39vh; bottom:-2vh; opacity:.3; }
-  html:not([data-theme="dark"]) body::after { opacity:.38; }
+  body::after { width:128vw; height:68vw; top:35vh; opacity:.34; }
+  html:not([data-theme="dark"]) body::after { opacity:.13; }
 }
 @media(prefers-reduced-motion:reduce) {
   body::before,body::after { animation:none; }
