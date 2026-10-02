@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pradeep Kadakol — Full-Stack Developer</title>
   <meta name="description" content="Meet Pradeep Kadakol, a Computer Science student building full-stack web applications and exploring AI. Explore his projects, skills, and journey.">
-  <meta name="theme-color" content="#f7f9fd">
+  <meta name="theme-color" content="#f6f5ef">
   <link rel="icon" type="image/svg+xml" href="assets/pk-mark.svg">
   <script>
     (function () {
       try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
-      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#111a2b' : '#f7f9fd';
+      document.querySelector('meta[name="theme-color"]').content = document.documentElement.dataset.theme === 'dark' ? '#191c18' : '#f6f5ef';
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,6 +292,7 @@
     @media(forced-colors:active){.hero h1 .accent{background:none;color:CanvasText}}
     @media print{.head,.menu,.filters,.to-top,.toast,.progress,.hero-bottom,.form,.floating-tech,.code-note,body::before{display:none!important} body{background:white;color:black} .hero h1 .accent{background:none;color:#1e2940} .section{padding-block:30px} .container{width:100%} html.js [data-reveal]{opacity:1;transform:none} .proj,.skill-card,.milestone,.tl-item{break-inside:avoid} .milestones,.skill-card,.proj,.education,.portrait-card{background:white;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;border-color:#ddd}}
   </style>
+  <link rel="stylesheet" href="assets/studio.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -355,7 +356,7 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy" data-reveal>
-            <div class="hello-pill"><span class="status-dot" aria-hidden="true"></span>A little curiosity. A lot of possibility.</div>
+            <div class="hello-pill"><span class="status-dot" aria-hidden="true"></span>Code. Curiosity. Craft.</div>
             <h1 id="hero-title"><span class="greeting">Hey there, I'm</span><span class="name-line">Pradeep</span> <span class="name-line accent">Kadakol<span aria-hidden="true">.</span></span></h1>
             <p class="hero-role"><svg class="ic" aria-hidden="true"><use href="#i-code"/></svg>Full-stack developer &amp; curious builder</p>
             <p class="lead">I turn ideas into thoughtful web experiences. A Computer Science student exploring the space between clean code, real-world problems, and artificial intelligence.</p>
@@ -451,7 +452,7 @@
 
       function applyTheme(theme) {
         root.dataset.theme = theme;
-        $('meta[name="theme-color"]').content = theme === 'dark' ? '#111a2b' : '#f7f9fd';
+        $('meta[name="theme-color"]').content = theme === 'dark' ? '#191c18' : '#f6f5ef';
         $('.theme-btn').setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
       }
       applyTheme(root.dataset.theme);
